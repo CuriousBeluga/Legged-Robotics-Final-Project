@@ -37,19 +37,3 @@ robot_parameters.l3i = 100;
 
 plotTraj( ee_start, ee_end, robot_parameters );
 
-
-% calculate the joint angles, use them to plot
-% [hip, knee, ankle, l_prime] = invKin_HWR(ee, robot_parameters);
-
-
-
-% draw the legs of the HWR
-% drawHWR( ee, robot_parameters, hip, knee, ankle, l_prime )
-
-
-
-
-
-
-
-

@@ -1,5 +1,5 @@
 function plotTraj( ee_start, ee_end, robot_parameters )
-    resolution = 10;
+    resolution = 100;
     % adjust resolution, or amount of points to plot to get to the endpoint
     % time = vector of evenly spaced times going from 0 to duration, with 
     %        size resolution
@@ -10,24 +10,15 @@ function plotTraj( ee_start, ee_end, robot_parameters )
 
 %     q = zeros(2, resolution);
     delta_q = zeros(6, resolution);
-    
-    % for each of the ee fields, calculate a trajectory
-    for ii=1:6
-        %ee_points(ii,:) = interp1( [0 1], [ee_start(ii) ee_end(ii)], time );
-        [q, ~,~,~,~] = trapveltraj([0 1; ee_start(ii) ee_end(ii)], resolution );
-        ee_points(ii,:) = q(2,:);
-        delta_q(ii,:) = q(1,:);
-    end
-    
-    figure;
-    
 
+    [q, ~,~,~,~] = trapveltraj([ee_start, ee_end], resolution );
+    
+    figure(1);
+    
     % draw the robot platform for every time in time
-    for ii=1:size(ee_points,2)
-        drawPlatform( ee_points(:,ii), robot_parameters);
-        if ii < length(time)
-            pause(delta_q(1,ii));
-        end
+    for ii=1:size(q,2)
+        drawPlatform( q(:,ii), robot_parameters);
+        pause(0.01);
     end
 end
 
