@@ -1,4 +1,4 @@
-function drawPlatform( ee, robot_parameters)
+function drawRobot( ee, robot_parameters)
     % draw upper platform
     create_circle( ee(1), ee(2), robot_parameters.upper/2, robot_parameters.l3i, ee, 'black' );
     hold on
@@ -18,10 +18,29 @@ function drawPlatform( ee, robot_parameters)
         z = [u_o(3,ii); u_o(3,ii)+L_o(3,ii)];
         plot3(x,y,z, 'Color', 'black'); hold on
     end
+
+    % EVERYTHING WORKS UP UNTIL HERE
+    
+    [X,Y,Z]=cylinder([robot_parameters.upper/2 0]);
+    
+%     M=makehgtform('translate',[ee(1:2); ee(3)+50],'xrotate',ee(4),'yrotate',pi+ee(5),'zrotate',ee(6));
+%     
+%     cone_xyz = M(1:3,1:3)*[1;1;50];
+%     X = X*cone_xyz(1);
+%     Y = Y*cone_xyz(2);
+%     Z = Z*cone_xyz(3);
+% %     Z = Z*;
+% %     disp(cone_xyz(3))
+%     h=surf(X,Y,Z,'Parent',hgtransform('Matrix',M),'LineStyle','none','FaceAlpha',0.6);
+% %     view([30,35])
+% %     grid on
+%     light
+%     zlim([0 400]);
+
+
+
     hold off
 end
-
-
 
 function create_circle(xoffset,yoffset,r,platform_height,ee,color)
     theta = 0:pi/50:2*pi;

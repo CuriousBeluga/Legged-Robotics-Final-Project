@@ -23,12 +23,18 @@ ee_start = [0;
             deg2rad(0);
             0    ];
 
-ee_end = [  50;
+ee_end = [  0;
             10;
             100;
-            deg2rad(10);
-            deg2rad(10);
+            deg2rad(20);
+            deg2rad(20);
             0    ];
+% ee_end = [  80;
+%             10;
+%             100;
+%             deg2rad(0);
+%             deg2rad(0);
+%             0    ];
 
 % coxa, femur, and tibia leg segments, all in mm
 robot_parameters.l1i = 20;
