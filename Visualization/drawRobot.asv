@@ -9,7 +9,7 @@ function drawRobot( ee, robot_parameters)
 
     xlim([-robot_parameters.lower robot_parameters.lower])
     ylim([-robot_parameters.lower robot_parameters.lower])
-    zlim([0 robot_parameters.lower])
+    zlim([0 robot_parameters.upper])
 
     % calculate direct (virtual) leg lengths
     [L_o, l, u_o, s_c, R_co] = inv_kin( ee, robot_parameters );
@@ -26,20 +26,15 @@ end
 function create_cone( ee, robot_parameters )
     % EVERYTHING WORKS UP UNTIL HERE
     
-    r = robot_parameters.upper/2;
-    h = robot_parameters.upper/2;
+    r = 112.0;
+    h = 100.0;
     m = (h/r);
     [R,A] = meshgrid(linspace(0,r,11),linspace(0,2*pi,41));
     X = (R .* cos(A));
     Y = (R .* sin(A));
     Z = (-m*R);
-    h=surf(X+ee(1),Y+ee(2),Z+ee(3)+robot_parameters.upper/2);
-    inclined_x = rad2deg(ee(4)); % in degrees
-    inclined_y = rad2deg(ee(5)); % in degrees
-    inclined_z = rad2deg(ee(6)); % in degrees
-    rotate(h, [1 0 0], inclined_x);
-    rotate(h, [0 1 0], inclined_y);
-    rotate(h, [0 0 1], inclined_z);
+    h=surf(X+185,Y+200,Z+210);
+    
 % 
 %     [X,Y,Z]=cylinder([robot_parameters.upper/2 0]);
 %     

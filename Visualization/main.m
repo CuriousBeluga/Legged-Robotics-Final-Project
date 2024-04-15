@@ -10,12 +10,12 @@ robot_parameters.alpha = deg2rad(60);   % lower dish, in radians
 robot_parameters.lower = 480;           % lower dish radius, millimeters
 robot_parameters.euler_angles = "XYZ";
 
-% ee = [ 0;
-%        10;
-%        100;
-%        deg2rad(5);
-%        deg2rad(5);
-%        0    ];
+ee = [ 0;
+       10;
+       100;
+       deg2rad(5);
+       deg2rad(5);
+       0    ];
 ee_start = [0;
             10;
             100;
@@ -23,12 +23,12 @@ ee_start = [0;
             deg2rad(0);
             0    ];
 
-ee_end = [  0;
-            10;
-            100;
-            deg2rad(20);
-            deg2rad(20);
-            0    ];
+% ee_end = [  0;
+%             10;
+%             100;
+%             deg2rad(20);
+%             deg2rad(20);
+%             0    ];
 % ee_end = [  80;
 %             10;
 %             100;
