@@ -10,7 +10,8 @@
 
 %% STL image processing code
 % inputs: stl file
-% outputs: end effector positions over time
+% outputs: end effector positions over time (nodes)
+% assume each position is evenly spaced out in time
 load('simple_stadium_data.mat');
 
 %% Inverse kinematics code

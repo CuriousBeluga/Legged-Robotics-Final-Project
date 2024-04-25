@@ -1,5 +1,19 @@
 function plotTraj( ee_points, robot_parameters )
 
+    x=1:256;
+    [x y] = meshgrid(x,x);
+    figure(1)
+    vidfile = VideoWriter('testmovie.mp4','MPEG-4');
+    open(vidfile);
+    for ind = 1:256
+        z=sin(x*2*pi/ind)+cos(y*2*pi/ind);
+       imagesc(z),colormap(hot) 
+        drawnow
+        F(ind) = getframe(gcf); 
+        writeVideo(vidfile,F(ind));
+    end
+    
+
     ee_start = ee_points(:,1);
     ee_end = ee_points(:,end);
 
@@ -25,8 +39,16 @@ function plotTraj( ee_points, robot_parameters )
         drawSim( dims ); hold on
         drawRobot( q(:,ii), robot_parameters);
         hold off
+
+        drawnow
+        F(ind) = getframe(gcf); 
+        writeVideo(vidfile,F(ind));
+
+
         pause(0.01);
     end
+
+    close(vidfile)
 end
 
 
