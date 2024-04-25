@@ -31,7 +31,8 @@ Desiredpose = [10  0 150 10 80 0;
 %% Forward kinematics code
 % inputs: end effector positions over time
 % outputs: kinematic calibration
-
+initial_guess = [0 0 150 0 0 0]';
+P = ForwardKinematics(initial_guess, LegsT)
 
 %% Visualization code
 % inputs: leg lengths and end effector positions over time
