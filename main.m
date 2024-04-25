@@ -5,8 +5,15 @@
 %          Sean Tseng       %
 %          Lucas Vanslette  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+close all
+clear all
+clc
 % NOTE: the robot parameters are assumed to be known
+Rm = 250/2; Rf = 650/2; % diameter of top and bottom platform in mm
+alpha = 40*pi/180; beta = 80*pi/180; % angle of seperation for top and bottom platforms
+dt = 0.1; % Time increment
+botParams = [Rm, Rf, alpha, beta, dt]; % parameter collection
+
 
 %% STL image processing code
 % inputs: stl file
@@ -15,14 +22,18 @@
 load('simple_stadium_data.mat');
 
 %% Inverse kinematics code
-% inputs: end effector positions over time
+Desiredpose = [10  0 150 10 80 0;
+               10 20 150  0 60 0]'; % Test points
+[LegsT] = InverseKinematics(Desiredpose, botParams)
+% inputs: Robot parameters, end effector positions over time
 % outputs: leg lengths over time
 
 
 %% Forward kinematics code
 % inputs: end effector positions over time
 % outputs: kinematic calibration
-
+initial_guess = [0 0 150 0 0 0]';
+P = ForwardKinematics(initial_guess, LegsT)
 
 %% Visualization code
 % inputs: leg lengths and end effector positions over time
