@@ -35,6 +35,9 @@ Desiredpose = nodes;
 initial_guess = [0 0 150 0 0 0]';
 % P = ForwardKinematics(initial_guess, LegsT)
 
+% for debugging: visualize the points from the input
+plotPoints( nodes(1:3,:) );
+
 %% Visualization code
 % inputs: leg lengths and end effector positions over time
 % outputs: visualized robot 
