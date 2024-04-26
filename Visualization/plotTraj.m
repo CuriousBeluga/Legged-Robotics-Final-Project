@@ -1,21 +1,21 @@
-function plotTraj( ee_points, robot_parameters )
+function plotTraj( LegsT, robot_parameters )
 
-    x=1:256;
-    [x y] = meshgrid(x,x);
-    figure(1)
-    vidfile = VideoWriter('testmovie.mp4','MPEG-4');
-    open(vidfile);
-    for ind = 1:256
-        z=sin(x*2*pi/ind)+cos(y*2*pi/ind);
-       imagesc(z),colormap(hot) 
-        drawnow
-        F(ind) = getframe(gcf); 
-        writeVideo(vidfile,F(ind));
-    end
+%     x=1:256;
+%     [x y] = meshgrid(x,x);
+%     figure(1)
+%     vidfile = VideoWriter('testmovie.mp4','MPEG-4');
+%     open(vidfile);
+%     for ind = 1:256
+%         z=sin(x*2*pi/ind)+cos(y*2*pi/ind);
+%        imagesc(z),colormap(hot) 
+%         drawnow
+%         F(ind) = getframe(gcf); 
+%         writeVideo(vidfile,F(ind));
+%     end
     
 
-    ee_start = ee_points(:,1);
-    ee_end = ee_points(:,end);
+    ee_start = LegsT(:,1);
+    ee_end = LegsT(:,end);
 
     resolution = 100;
     % adjust resolution, or amount of points to plot to get to the endpoint
@@ -28,7 +28,7 @@ function plotTraj( ee_points, robot_parameters )
 
 
     % draw the non-moving part of the simulation
-    dims = max(abs(ee_points(1:3,:)),[],2) + robot_parameters.lower;
+    dims = max(abs(LegsT(1:3,:)),[],2) + robot_parameters.lower;
     dims(3) = dims(3)-450;
     xlim([-dims(1) dims(1)])
     ylim([-dims(2) dims(2)])
@@ -39,16 +39,16 @@ function plotTraj( ee_points, robot_parameters )
         drawSim( dims ); hold on
         drawRobot( q(:,ii), robot_parameters);
         hold off
-
-        drawnow
-        F(ind) = getframe(gcf); 
-        writeVideo(vidfile,F(ind));
+% 
+%         drawnow
+%         F(ind) = getframe(gcf); 
+%         writeVideo(vidfile,F(ind));
 
 
         pause(0.01);
     end
 
-    close(vidfile)
+%     close(vidfile)
 end
 
 

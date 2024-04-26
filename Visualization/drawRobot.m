@@ -1,4 +1,5 @@
 function drawRobot( ee, robot_parameters)
+    [Rm, Rf, alpha, beta, dt] = robot_parameters;
     % draw upper platform
     create_circle( ee(1), ee(2), robot_parameters.upper/2, ee(3), ee, 'black' );
     hold on

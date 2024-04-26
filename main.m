@@ -24,20 +24,19 @@ load('simple_stadium_data.mat');
 %% Inverse kinematics code
 Desiredpose = [10  0 150 10 80 0;
                10 20 150  0 60 0]'; % Test points
-[LegsT] = InverseKinematics(Desiredpose, botParams)
+[LegsT] = InverseKinematics(Desiredpose, botParams);
 % inputs: Robot parameters, end effector positions over time
 % outputs: leg lengths over time
-
 
 %% Forward kinematics code
 % inputs: end effector positions over time
 % outputs: kinematic calibration
 initial_guess = [0 0 150 0 0 0]';
-P = ForwardKinematics(initial_guess, LegsT)
+% P = ForwardKinematics(initial_guess, LegsT)
 
 %% Visualization code
 % inputs: leg lengths and end effector positions over time
 % outputs: visualized robot 
-plotTraj( ee_points, robot_parameters );
+plotTraj( nodes, botParams );
 
 
