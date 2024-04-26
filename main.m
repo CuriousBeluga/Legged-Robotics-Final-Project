@@ -22,8 +22,9 @@ botParams = [Rm, Rf, alpha, beta, dt]; % parameter collection
 load('simple_stadium_data.mat');
 
 %% Inverse kinematics code
-Desiredpose = [10  0 150 10 80 0;
-               10 20 150  0 60 0]'; % Test points
+% Desiredpose = [10  0 150 10 80 0;
+%                10 20 150  0 60 0]'; % Test points
+Desiredpose = nodes;
 [LegsT] = InverseKinematics(Desiredpose, botParams);
 % inputs: Robot parameters, end effector positions over time
 % outputs: leg lengths over time
