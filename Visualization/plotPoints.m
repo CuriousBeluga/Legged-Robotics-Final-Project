@@ -13,6 +13,7 @@ function plotPoints( points )
     ylim([-dims(2) dims(2)])
     zlim([-dims(3) dims(3)])
     hold on
+    camproj('perspective');
     while ii < n
         scatter3( points(1,ii),points(2,ii),points(3,ii) );
         pause(0.1);

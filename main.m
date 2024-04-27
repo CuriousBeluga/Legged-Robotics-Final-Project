@@ -6,10 +6,10 @@
 %          Lucas Vanslette  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 close all
-clear all
+clear
 clc
 % NOTE: the robot parameters are assumed to be known
-Rm = 250/2; Rf = 650/2; % diameter of top and bottom platform in mm
+Rm = 50/2; Rf = 150/2; % diameter of top and bottom platform in mm
 alpha = 40*pi/180; beta = 80*pi/180; % angle of seperation for top and bottom platforms
 dt = 0.1; % Time increment
 botParams = [Rm, Rf, alpha, beta, dt]; % parameter collection
@@ -36,11 +36,11 @@ initial_guess = [0 0 150 0 0 0]';
 % P = ForwardKinematics(initial_guess, LegsT)
 
 % for debugging: visualize the points from the input
-plotPoints( nodes(1:3,:) );
+% plotPoints( nodes(1:3,:) );
 
 %% Visualization code
 % inputs: leg lengths and end effector positions over time
 % outputs: visualized robot 
-plotTraj( nodes, botParams );
+plotTraj( nodes, LegsT, botParams );
 
 
