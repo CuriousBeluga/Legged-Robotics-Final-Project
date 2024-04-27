@@ -19,8 +19,8 @@ botParams = [Rm, Rf, alpha, beta, dt]; % parameter collection
 % inputs: stl file
 % outputs: end effector positions over time (nodes)
 % assume each position is evenly spaced out in time
-load('simple_stadium_data.mat');
-
+load('pipe_data.mat');
+nodes = nodes_pipe;
 %% Inverse kinematics code
 % Desiredpose = [10  0 150 10 80 0;
 %                10 20 150  0 60 0]'; % Test points

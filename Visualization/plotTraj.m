@@ -19,7 +19,7 @@ function plotTraj( nodes, LegsT, botParams )
     %        size resolution
 
 %     [q, ~,~,~,~] = trapveltraj([ee_start, ee_end], resolution );
-    nodes = -1*nodes.*1000;
+    nodes = nodes.*500;
 
     figure(1);
     % draw the non-moving part of the simulation

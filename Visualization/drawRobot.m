@@ -12,7 +12,7 @@ function drawRobot( ee, L_o, u_o, t, botParams)
     
     
     % draw upper platform
-    create_circle( ee, Rm, 'black' );
+%     create_circle( ee, Rm, 'black' );
     hold on
     % draw lower platform
     create_circle( zeros([6,1]), Rf, 'black' );
@@ -25,11 +25,11 @@ function drawRobot( ee, L_o, u_o, t, botParams)
         z = [u_o(3,ii); u_o(3,ii)+L_o(3,ii)];
         plot3(x,y,z, 'Color', 'black'); hold on
 
-%         % plot the connection points just in case the circle looks bad
-%         x = [u_o(1,ii)+L_o(1,ii); u_o(1,mod(ii,6)+1)+L_o(1,mod(ii,6)+1)];
-%         y = [u_o(2,ii)+L_o(2,ii); u_o(2,mod(ii,6)+1)+L_o(2,mod(ii,6)+1)];
-%         z = [u_o(3,ii)+L_o(3,ii); u_o(3,mod(ii,6)+1)+L_o(3,mod(ii,6)+1)];
-%         plot3(x,y,z, 'Color', 'red'); 
+        % plot the connection points just in case the circle looks bad
+        x = [u_o(1,ii)+L_o(1,ii); u_o(1,mod(ii,6)+1)+L_o(1,mod(ii,6)+1)];
+        y = [u_o(2,ii)+L_o(2,ii); u_o(2,mod(ii,6)+1)+L_o(2,mod(ii,6)+1)];
+        z = [u_o(3,ii)+L_o(3,ii); u_o(3,mod(ii,6)+1)+L_o(3,mod(ii,6)+1)];
+        plot3(x,y,z, 'Color', 'red'); 
     end
 
 end
