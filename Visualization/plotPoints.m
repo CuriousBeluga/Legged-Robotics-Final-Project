@@ -4,7 +4,7 @@ function plotPoints( points )
     ii = 1;
 
     n = size(points, 2);
-    n = 100;  % first 100 points
+%     n = 100;  % first 100 points
 
     % create figure
     f = figure(1);

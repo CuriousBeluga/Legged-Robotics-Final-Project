@@ -10,7 +10,7 @@ function plotTraj( nodes, LegsT, botParams )
 
     if debug
         % only plot every 200 nodes
-        nodes = nodes(:,1:20:end);
+%         nodes = nodes(:,1:20:end);
     end
 
 %     resolution = 100;
@@ -19,7 +19,7 @@ function plotTraj( nodes, LegsT, botParams )
     %        size resolution
 
 %     [q, ~,~,~,~] = trapveltraj([ee_start, ee_end], resolution );
-    nodes = nodes.*500;
+    nodes = -1*nodes.*500;
 
     figure(1);
     % draw the non-moving part of the simulation

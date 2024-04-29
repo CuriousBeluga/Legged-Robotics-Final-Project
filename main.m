@@ -20,7 +20,7 @@ botParams = [Rm, Rf, alpha, beta, dt]; % parameter collection
 % outputs: end effector positions over time (nodes)
 % assume each position is evenly spaced out in time
 load('pipe_data.mat');
-nodes = nodes_pipe;
+nodes = nodes';
 %% Inverse kinematics code
 % Desiredpose = [10  0 150 10 80 0;
 %                10 20 150  0 60 0]'; % Test points
@@ -36,11 +36,11 @@ initial_guess = [0 0 150 0 0 0]';
 % P = ForwardKinematics(initial_guess, LegsT)
 
 % for debugging: visualize the points from the input
-% plotPoints( nodes(1:3,:) );
+plotPoints( nodes(1:3,:) );
 
 %% Visualization code
 % inputs: leg lengths and end effector positions over time
 % outputs: visualized robot 
-plotTraj( nodes, LegsT, botParams );
+% plotTraj( nodes, LegsT, botParams );
 
 
